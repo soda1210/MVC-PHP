@@ -1,8 +1,10 @@
 <?php
 require_once __DIR__ . '/../models/Item.php';
 
-class ItemController {
-    public function read($id = null) {
+class ItemController
+{
+    public function read($id = null)
+    {
         $item = new Item();
         if ($id) {
             $stmt = $item->readById($id);

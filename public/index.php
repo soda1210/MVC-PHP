@@ -19,7 +19,8 @@ if (isset($uri[4]) && $uri[4] == 'items') {
     exit();
 }
 
-function handleRequest($controller, $method, $uri) {
+function handleRequest($controller, $method, $uri)
+{
     switch ($method) {
         case 'GET':
             if (isset($uri[5])) {
@@ -44,8 +45,8 @@ function handleRequest($controller, $method, $uri) {
     }
 }
 
-function sendResponse($statusCode, $message) {
+function sendResponse($statusCode, $message)
+{
     header("HTTP/1.1 $statusCode");
     echo json_encode(["message" => $message]);
 }
-?>

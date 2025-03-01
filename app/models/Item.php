@@ -1,7 +1,8 @@
 <?php
 require_once __DIR__ . '/../../config/database.php';
 
-class Item {
+class Item
+{
     private $conn;
     private $table_name = "`table-1`"; // 使用反引號括起來
 
@@ -9,12 +10,14 @@ class Item {
     public $name;
     public $description;
 
-    public function __construct() {
+    public function __construct()
+    {
         $database = new Database();
         $this->conn = $database->getConnection();
     }
 
-    public function read() {
+    public function read()
+    {
         try {
             $query = "SELECT * FROM " . $this->table_name;
             $stmt = $this->conn->prepare($query);
@@ -26,7 +29,8 @@ class Item {
         }
     }
 
-    public function readById($id) {
+    public function readById($id)
+    {
         try {
             $query = "SELECT * FROM " . $this->table_name . " WHERE `key-id` = :id";
             $stmt = $this->conn->prepare($query);
