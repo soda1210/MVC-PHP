@@ -11,11 +11,12 @@ if (!isset($uri[3]) || $uri[2] != 'public' || $uri[3] != 'index.php') {
     exit();
 }
 
-if (!isset($uri[4]) || $uri[4] != 'items') {
+if (isset($uri[4]) || $uri[4] == 'items') {
+    $controller = new ItemController();
+}else{
     sendResponse(404, "Page not found");
     exit();
 }
-
 $controller = new ItemController();
 handleRequest($controller, $method, $uri);
 
